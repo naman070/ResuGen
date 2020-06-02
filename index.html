@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+            integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/template_style.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        
+        <title>ResuGen</title>
+
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-sm text-center" style="background-color:rgb(25, 48, 38);">
+            <div class="collapse navbar-collapse text-center">
+                <ul class="navbar-nav navbar-left ml-5" id="my_nav1" >
+                    <li class="nav-item">
+                        <h4 class="detail">Resu<span class="name">Gen</span></h4>
+                    </li>
+                </ul>
+                <!-- <ul class="navbar-nav navbar-center" id="my_nav2">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" >Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Templates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link ">Editor</a>
+                    </li>
+                </ul> -->
+            </div>
+        </nav>
+
+        <section id="left" class="px-3 pt-3 text-center">
+            <button class="link mt-5" id="Profile">Profile</button><br>
+            <button class="link" id="Education">Education</button><br>
+            <button class="link" id="Work">Work</button><br>
+            <button class="link" id="Projects">Projects</button><br>
+            <button class="link" id="Achievements">Achievements</button><br>
+            <button class="link" id="Hobbies">Hobbies</button><br>
+            <button class="makeRes mt-4" id="Make">MAKE</button>
+
+        </section>
+
+        <section id="middle" class="px-3 pt-3 pb-5 text-center">
+
+            <!------------------------------------- PROFILE ------------------------------------->
+            <!----------------------------------------------------------------------------------->
+            <div id="ProfileSection" class="mb-5">
+                <div class="Upper elements-table w-100"> 
+                    <p class="elements-table-cell pb-3 pl-3 text-left" style="word-spacing: 5px; font-size: 20px; font-weight: 300;">YOUR PERSONAL INFO</p>                 
+                    <div class="button_list elements-table-cell tar" style="float: right;">
+                        <!-- <button class = "inside__btn" id="profile_submit__btn"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button> -->
+                        <!-- <button class = "inside__btn" id="profile_submit__btn"><img src="img/check.png"></button> -->
+                        <input type="image" src="img/check.png" alt="Submit" width="40" height="40" id="profile_submit__btn">
+                    </div>
+                </div>
+                
+                <form class="text-left" id="ProfileForm">
+                    <label class="text-left Fields pl-3">Full Name<br>
+                        <input class="mt-3 input_fields" type="text" name="name" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Roll Number<br>
+                        <input class="mt-3 input_fields" type="text" name="rollno" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Date Of Birth<br>
+                        <input class="mt-3 input_fields" type="text" name="dob" spellcheck="false" autocomplete="off" placeholder="DD-MM-YYYY">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">College Name<br>
+                        <input class="mt-3 input_fields" type="text" name="college" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">College Email<br>
+                        <input class="mt-3 input_fields" type="text" name="college_email" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Phone Number<br>
+                        <input class="mt-3 input_fields" type="text" name="phone" spellcheck="false" autocomplete="off" placeholder="+91-XXXXXXXXXX">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Personal Email<br>
+                        <input class="mt-3 input_fields" type="text" name="personal_email" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">LinkedIn Link (If Any)<br>
+                        <input class="mt-3 input_fields" type="text" name="linkedIn" spellcheck="false" autocomplete="off">
+                    </label>
+                    <br>
+                </form>
+            </div>
+            <!--------------------------------------PROFILE FORM ENDS------------------------------>
+            <!------------------------------------------------------------------------------------->
+
+            <!------------------------------------- EDUCATION ------------------------------------->
+            <!------------------------------------------------------------------------------------->
+            <div id="EducationSection" class="mb-5">
+                <div class="Upper elements-table w-100"> 
+                    <p class="elements-table-cell pb-3 pl-3 text-left" style="word-spacing: 5px; font-size: 20px; font-weight: 300;">YOUR EDUCATIONAL BACKGROUND</p>                 
+                    <div class="button_list elements-table-cell tar" style="float: right;">
+                        <input type="image" src="img/check.png" alt="Submit" width="40" height="40" id="education_submit__btn">
+                        <!-- <button class = "inside__btn" id="education_submit__btn"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button> -->
+                    </div>
+                </div>
+                <form class="text-left" id="CollegeForm">
+
+                    <!-------------------------------College Details-------------------------------->
+                    <p class="text-left pt-2 pl-3 subheading">College Details</p>
+                    <label class="text-left Fields pl-3">College<br>
+                        <input class="mt-3 input_fields" type="text" name="college2" spellcheck="false" autocomplete="off">
+                    </label>
+                    <br>
+
+                    <label class="text-left Fields pl-3">Major<br>
+                        <input class="mt-3 input_fields" type="text" name="stream" spellcheck="false" autocomplete="off" placeholder="Eg: B.Tech CSE">
+                    </label>
+                    <br>
+
+                    <label class="text-left Fields pl-3">Duration<br>
+                        <input class="mt-3 input_fields" type="text" name="college_period" spellcheck="false" autocomplete="off" placeholder="20XX - 20XX">
+                    </label>
+                    <br>
+
+                    <label class="text-left Fields pl-3">CGPA<br>
+                        <input class="mt-3 input_fields" type="text" name="college_cgpa" spellcheck="false" autocomplete="off">
+                    </label>
+                    <br>
+                </form>
+
+                    <!------------------------------------------------------------------------------------>
+
+                    <!-------------------------------Class XII Details------------------------------------->
+                <form class="text-left" id="XIIForm">
+                    <p class="text-left pt-2 pl-3 mt-4 subheading">Class XII Details</p>
+                    <label class="text-left Fields pl-3 ">School (Class XII)<br>
+                        <input class="mt-3 input_fields" type="text" name="XII" spellcheck="false" autocomplete="off">
+                    </label>
+                    <br>
+
+                    <label class="text-left Fields pl-3">Board (Class XII)<br>
+                        <input class="mt-3 input_fields" type="text" name="board_XII" spellcheck="false" autocomplete="off">
+                    </label>
+                    <br>
+
+                    <label class="text-left Fields pl-3">Duration<br>
+                        <input class="mt-3 input_fields" type="text" name="XII_period" spellcheck="false" autocomplete="off" placeholder="20XX - 20XX">
+                    </label>
+                    <br>
+
+                    <label class="text-left Fields pl-3">Percentage<br>
+                        <input class="mt-3 input_fields" type="text" name="XII_percentage" spellcheck="false" autocomplete="off">
+                    </label>
+                    <br>
+                
+                </form>
+
+                    <!-------------------------------------------------------------------------------->
+
+                    <!-----------------------------------Class X Details------------------------------>
+                <form class="text-left" id= 'XForm'>
+                    <p class="text-left pt-2 pl-3 subheading mt-4">Class X Details</p>
+                    <label class="text-left Fields pl-3">School (Class X)<br>
+                        <input class="mt-3 input_fields" type="text" name="X" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Board (Class X)<br>
+                        <input class="mt-3 input_fields" type="text" name="board_X" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Duration<br>
+                        <input class="mt-3 input_fields" type="text" name="X_period" spellcheck="false" autocomplete="off" placeholder="20XX - 20XX">
+                    </label>
+                    <br>
+
+                    <label class="text-left Fields pl-3">CGPA (Class X)<br>
+                        <input class="mt-3 input_fields" type="text" name="X_cgpa" spellcheck="false" autocomplete="off">
+                    </label>
+                    <br>
+
+                    <!------------------------------------------------------------------------------------>
+
+                </form>
+            </div>
+            <!--------------------------------EDUCATION FORM ENDS-------------------------------------->
+            <!----------------------------------------------------------------------------------------->
+
+            <!-----------------------------------WORK FORM STARTS--------------------------------------->
+            <div id="WorkSection">
+                <div class="Upper elements-table w-100"> 
+                    <p class="elements-table-cell pb-3 pl-3 text-left" style="word-spacing: 5px; font-size: 20px; font-weight: 300;">YOUR INTERNSHIPS</p>                 
+                    <div class="button_list elements-table-cell tar" style="float: right;">
+                        <!-- <button class = "inside__btn" id="work_submit__btn"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button> -->
+                        <input type="image" src="img/check.png" alt="Submit" width="45" height="40" id="work_submit__btn" class="pr-1">
+                        <!-- <button class = "inside__btn" id="work_add__btn"><i class="fa fa-plus-circle" aria-hidden="true"></i></button> -->
+                        <input type="image" src="img/plus.png" alt="Submit" width="48" height="40" id="work_add__btn" class="pl-1 pr-1">
+                        <input type="image" src="img/pencil.png" alt="Submit" width="48" height="40" id="work_edit__btn" class="pl-1 pr-1">
+                        <!-- <button class = "inside__btn" style = "font-size: 30px;" id="work_edit__btn"><i class="fa fa-pencil-square" aria-hidden="true"></i></button> -->
+                        <!-- <button class = "delete__btn pr-2" id="work_delete__btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button> -->
+                        <input type="image" src="img/cross.png" alt="Submit" width="48" height="40" id="work_delete__btn" class="pl-1 pr-1">
+                    </div>
+                </div>
+
+                <form class="text-left" id="WorkForm" name="WorkForm">
+                    <label class="text-left Fields pl-3">WorkID<br>
+                        <input class="mt-3 input_fields" type="text" name="workID" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Name of the Company<br>
+                        <input class="mt-3 input_fields" type="text" name="workName" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Guide<br>
+                        <input class="mt-3 input_fields" type="text" name="workGuide" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Duration<br>
+                        <input class="mt-3 input_fields" type="text" name="workDuration" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Description<br>
+                        <input class="mt-3 input_fields" type="text" name="workDescription" spellcheck="false" autocomplete="off">
+                    </label>
+                    <br>
+                </form>
+                <br>
+            </div>
+            <!-----------------------------------WORK FORM ENDS----------------------------------------------->
+            <!------------------------------------------------------------------------------------------------>
+
+            <!-----------------------------------PROJECT FORM STARTS--------------------------------------->
+            <div id="ProjectSection">
+                <div class="Upper elements-table w-100"> 
+                    <p class="elements-table-cell pb-3 pl-3 text-left" style="word-spacing: 5px; font-size: 20px; font-weight: 300;">YOUR PROJECTS INFO</p>                 
+                    <div class="button_list elements-table-cell tar" style="float: right;">
+                        <input type="image" src="img/check.png" alt="Submit" width="48" height="40" id="proj_submit__btn" class="pl-1 pr-1">
+                        <input type="image" src="img/plus.png" alt="Submit" width="48" height="40" id="proj_add__btn" class="pl-1 pr-1">
+                        <input type="image" src="img/pencil.png" alt="Submit" width="48" height="40" id="proj_edit__btn" class="pl-1 pr-1">
+                        <input type="image" src="img/cross.png" alt="Submit" width="48" height="40" id="proj_delete__btn" class="pl-1 pr-1">
+                        <!-- <button class = "inside__btn" id="proj_submit__btn"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button>
+                        <button class = "inside__btn" id="proj_add__btn"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                        <button class = "inside__btn" style = "font-size: 30px;" id="proj_edit__btn"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+                        <button class = "delete__btn pr-2" id="proj_delete__btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button> -->
+                    </div>
+                </div>
+
+                <form class="text-left" id="ProjectForm" name="ProjectForm">
+
+                    <label class="text-left Fields pl-3">ProjectID<br>
+                        <input class="mt-3 input_fields" type="text" name="projectID" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Project Name<br>
+                        <input class="mt-3 input_fields" type="text" name="projectName" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Guide<br>
+                        <input class="mt-3 input_fields" type="text" name="projectGuide" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Duration<br>
+                        <input class="mt-3 input_fields" type="text" name="projectDuration" spellcheck="false" autocomplete="off">
+                    </label>
+
+                    <br>
+                    <label class="text-left Fields pl-3">Description<br>
+                        <input class="mt-3 input_fields" type="text" name="projectDescription" spellcheck="false" autocomplete="off">
+                    </label>
+                    <br>
+                </form>
+            </div>
+            <!-----------------------------------PROJECT FORM ENDS----------------------------------------------->
+            <!------------------------------------------------------------------------------------------------>
+
+
+        </section>
+        
+
+        <section id="right" class="px-3 pt-3">
+            <div class="resu_template">
+                <!-- Basic INFO-->
+                <div id="profile_section" class="row" style="margin-bottom: 10px;">
+                    <div class="col-sm-12">
+                        <div id="info" style="display:inline-block" class="pl-4 pt-2">
+                            <h3 id="student_name" style="color:black; margin:17px 0px 0px 0px; font-family: 'Droid Serif', serif;" class="pb-1">Student Name</h3>
+                            <p id="student_rollno" class="basic_info ">20XXXXX</p>
+                            <p id="student_dob" class="basic_info ">DD-MM-YYYY</p>
+                            <p id="student_college" class="basic_info">Indraprastha Institute of Information Technology, Delhi</p>
+                        </div>
+
+                        <div id="contact_info" style="float: right; display:inline-block;" class="pr-3 pt-4 text-right">
+                            <p id="student_phone" class="basic_info">+91-XXXXXXXXXX</p>
+                            <p id="student_personal_email" class="basic_info">xyz.xyx@gmail.com</p>
+                            <p id="student_college_email" class="basic_info">xyx@iiitd.ac.in</p>
+                            <p id="student_linkedIn" class="basic_info">www.linkedin.com/in/xyz123</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Info-->
+                <div id="education_section">
+                    <div id="education_title" class="title">
+                        <p>Education</p>
+                    </div>
+                    <div class="row">
+                        <div id="college_data" class="col-sm-12 mb-3">
+                            <div id="info" style="display:inline-block" class="pl-4">
+                                <p id="student_college2" class="subtitle">Indraprastha Institute of Information Technology</p>
+                                <p id="student_stream" class="normal_text">B.Tech XXX</p>
+                                <p id="student_college_period" class="normal_text">20XX-20XX</p>
+                            </div>
+    
+                            <div style="float: right; display:inline-block; margin-right:20px" class="pr-3 text-right normal_text">
+                                <p id="student_college_cgpa">X.XX</p>
+                            </div>
+                        </div>
+                        
+                        <div id="XII_data" class="col-sm-12 mb-3">
+                            <div id="info" style="display:inline-block" class="pl-4">
+                                <p id="student_XII" class="subtitle">A B C Public School, Delhi</p>
+                                <p id="student_board_XII" class="normal_text">CBSE</p>
+                                <p id="student_XII_period" class="normal_text">20XX-20XX</p>
+                            </div>
+    
+                            <div style="float: right; display:inline-block; margin-right:20px" class="pr-3 text-right normal_text">
+                                <p id="student_XII_percentage" >XX.XX%</p>
+                            </div>
+                        </div>
+
+                        <div id="X_data" class="col-sm-12 mb-3">
+                            <div id="info" style="display:inline-block" class="pl-4">
+                                <p id="student_X" class="subtitle">A B C Public School, Delhi</p>
+                                <p id="student_board_X" class="normal_text">CBSE</p>
+                                <p id="student_X_period" class="normal_text">20XX-20XX</p>
+                            </div>
+    
+                            <div style="float: right; display:inline-block; margin-right:20px" class="pr-3 text-right normal_text">
+                                <p id="student_X_cgpa">X.XX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Section Ends-->
+                
+                <!-- Work Info-->
+                <div id="work_section">
+                    <div id="work_title" class="title mb-3">
+                        <p>Internships</p>
+                    </div>
+
+                    <ul id="work_list">
+                        <!--
+                        <li id="work-1">
+                            <div class="pl-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div id="info" style="display:inline-block">
+                                            <p id="student_workName" class="subtitle">Resugen</p>                                
+                                            <p class="subtitle p_tag" id="student_workGuide">Guide: </p><p id="guide" class="normal_text p_tag">Kakashi Hatake</p>
+                                        </div>
+                                        <div style="float: right; display:inline-block; margin-right:20px;" class="pr-3 text-right normal_text">
+                                            <p id="student_workDuration">May-2016 to June-2016</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p id="student_workDescription" class="normal_text">The above example creates three equal-width columns on small, medium, large, and extra large devices using our predefined grid classes. Those columns are centered in the page with the parent.</p>
+
+                            </div>
+                            <br>
+                        </li> -->
+                    </ul>
+
+                </div>
+
+                <!-- Work Section ends-->
+
+
+                <!-- Project Section starts -->
+                <div id="project_section">
+                    <div id="project_title" class="title mb-3">
+                        <p>Projects</p>
+                    </div>
+
+                    <ul id="project_list">
+                        <!--
+                        <li id="project-1">
+                            <div class="pl-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div id="info" style="display:inline-block">
+                                            <p id="student_projName" class="subtitle">Resugen</p>                                
+                                            <p class="subtitle p_tag" id="student_workGuide">Guide: </p><p id="guide" class="normal_text p_tag">Kakashi Hatake</p>
+                                        </div>
+                                        <div style="float: right; display:inline-block; margin-right:20px;" class="pr-3 text-right normal_text">
+                                            <p id="student_workDuration">May-2016 to June-2016</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p id="student_workDescription" class="normal_text">The above example creates three equal-width columns on small, medium, large, and extra large devices using our predefined grid classes. Those columns are centered in the page with the parent.</p>
+
+                            </div>
+                            <br>
+                        </li> -->
+                    </ul>
+
+                </div>
+        
+
+            </div>
+            
+        </section>
+        <script type="module" src="js/app.js"></script>
+        <script type="module" src="js/resuCtrl.js"></script>
+        <script type="module" src="js/UICtrl.js"></script>
+    </body>
+</html> 
