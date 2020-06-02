@@ -1,13 +1,16 @@
 export var UIController = (function(){
     var DOMbtns = {
+        make_pdf : '#MakePDF',
         profile_btn : '#Profile',
         edu_btn : '#Education',
+        skills_btn: '#Skills',
         work_btn : '#Work',
         proj_btn: '#Projects',
         achievements_btn: '#Achievements',
         hobbies_btn: '#Hobbies',
         profile_submit_btn: '#profile_submit__btn',
         edu_submit_btn:"#education_submit__btn",
+        skills_submit_btn: "#skills_submit__btn",
         work_submit_btn: '#work_submit__btn',
         work_add_btn: '#work_add__btn',
         work_edit_btn: '#work_edit__btn',
@@ -21,6 +24,7 @@ export var UIController = (function(){
     var DOMstrings = {
         profile_section: '#ProfileSection',
         edu_section: '#EducationSection',
+        skills_section: '#SkillsSection',
         work_section: '#WorkSection',
         proj_section: '#ProjectSection'
     };
@@ -30,6 +34,7 @@ export var UIController = (function(){
         edu_college_form: '#CollegeForm',
         edu_XII_form: '#XIIForm',
         edu_X_form: '#XForm',
+        skills_form: '#SkillsForm',
         work_form: '#WorkForm',
         proj_form: '#ProjectForm'
     };
@@ -37,6 +42,7 @@ export var UIController = (function(){
     var TemplateSections = {
         profile : "#profile_section",
         education : "#education_section",
+        skills: "#skills_section",
         work : "#work_section",
         project: '#project_section'
     };
@@ -86,6 +92,13 @@ export var UIController = (function(){
             education_arr.push(helper(X_el));
 
             return education_arr;
+        },
+
+        get_skills_input : function(){
+            var skills_arr = [];
+            var skills_el = document.querySelector(DOMforms.skills_form).elements;
+            skills_arr.push(helper(skills_el));
+            return skills_arr;
         },
 
         get_main_input : function(value){
@@ -165,6 +178,35 @@ export var UIController = (function(){
             updateHelper(data.edu_data.college_data);
             updateHelper(data.edu_data.XII_data);
             updateHelper(data.edu_data.X_data);
+
+        },
+
+        updateSkills: function(data){
+            var obj_data = data[0];
+            var key_names = Object.keys(obj_data);
+            console.log(obj_data);
+            var subheadings = ["student_expertise_sub","student_prog_languages_sub","student_tech_and_tools_sub","student_tech_electives_sub"];
+            var count = 0;
+
+            for(var i=0;i<key_names.length;i++){
+                var value = obj_data[key_names[i]];
+                var resu_id = 'student_' + key_names[i];
+                console.log(value);
+                if(value.length > 0){
+                    document.querySelector(TemplateSections.skills).style.display = 'block';
+                    document.getElementById(resu_id).style.display = 'block';
+                    document.getElementById(subheadings[i]).style.display = 'block';
+                }
+                else{
+                    count += 1;
+                    document.getElementById(resu_id).style.display = 'none';
+                    document.getElementById(subheadings[i]).style.display = 'none';
+                    if(count == 4){
+                        document.querySelector(TemplateSections.skills).style.display = 'none';
+                    }
+                }
+                document.getElementById(resu_id).innerHTML = value;
+            }
 
         },
 

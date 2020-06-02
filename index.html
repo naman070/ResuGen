@@ -21,7 +21,12 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 
+        
+        <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script> // dependency for Kendo UI API
+        <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jszip.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
         
         <title>ResuGen</title>
 
@@ -53,11 +58,12 @@
         <section id="left" class="px-3 pt-3 text-center">
             <button class="link mt-5" id="Profile">Profile</button><br>
             <button class="link" id="Education">Education</button><br>
+            <button class="link" id="Skills">Skills</button><br>
             <button class="link" id="Work">Work</button><br>
             <button class="link" id="Projects">Projects</button><br>
             <button class="link" id="Achievements">Achievements</button><br>
             <button class="link" id="Hobbies">Hobbies</button><br>
-            <button class="makeRes mt-4" id="Make">MAKE</button>
+            <button class="makeRes mt-4" id="MakePDF">MAKE PDF</button>
 
         </section>
 
@@ -69,8 +75,6 @@
                 <div class="Upper elements-table w-100"> 
                     <p class="elements-table-cell pb-3 pl-3 text-left" style="word-spacing: 5px; font-size: 20px; font-weight: 300;">YOUR PERSONAL INFO</p>                 
                     <div class="button_list elements-table-cell tar" style="float: right;">
-                        <!-- <button class = "inside__btn" id="profile_submit__btn"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button> -->
-                        <!-- <button class = "inside__btn" id="profile_submit__btn"><img src="img/check.png"></button> -->
                         <input type="image" src="img/check.png" alt="Submit" width="40" height="40" id="profile_submit__btn">
                     </div>
                 </div>
@@ -127,7 +131,6 @@
                     <p class="elements-table-cell pb-3 pl-3 text-left" style="word-spacing: 5px; font-size: 20px; font-weight: 300;">YOUR EDUCATIONAL BACKGROUND</p>                 
                     <div class="button_list elements-table-cell tar" style="float: right;">
                         <input type="image" src="img/check.png" alt="Submit" width="40" height="40" id="education_submit__btn">
-                        <!-- <button class = "inside__btn" id="education_submit__btn"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button> -->
                     </div>
                 </div>
                 <form class="text-left" id="CollegeForm">
@@ -214,18 +217,55 @@
             <!--------------------------------EDUCATION FORM ENDS-------------------------------------->
             <!----------------------------------------------------------------------------------------->
 
+
+            <!------------------------------------- SKILLS ------------------------------------->
+            <!------------------------------------------------------------------------------------->
+            <div id="SkillsSection" class="mb-5">
+                <div class="Upper elements-table w-100"> 
+                    <p class="elements-table-cell pb-3 pl-3 text-left" style="word-spacing: 5px; font-size: 20px; font-weight: 300;">YOUR TECHNICAL SKILLS</p>                 
+                    <div class="button_list elements-table-cell tar" style="float: right;">
+                        <input type="image" src="img/check.png" alt="Submit" width="40" height="40" id="skills_submit__btn">
+                    </div>
+                </div>
+                <form class="text-left" id="SkillsForm">
+                    <p class="text-left pt-2 pl-3 subheading mt-4" style="color: white;">Expertise Area</p>
+                    <label class="text-left Fields pl-3">
+                        <input class="input_fields" type="text" name="expertise_info" spellcheck="false" autocomplete="off" placeholder="Eg. Web Development, Data Structures and Algorithms">
+                    </label>
+                    <br>
+
+                    <p class="text-left pt-2 pl-3 subheading mt-4" style="color: white;">Programming Languages</p>
+                    <label class="text-left Fields pl-3">
+                        <input class="input_fields" type="text" name="prog_languages_info" spellcheck="false" autocomplete="off" placeholder="Python, JavaScript, C++, Java, PHP etc.">
+                    </label>
+                    <br>
+
+                    <p class="text-left pt-2 pl-3 subheading mt-4" style="color: white;">Tools and Technologies</p>
+                    <label class="text-left Fields pl-3">
+                        <input class="input_fields" type="text" name="tech_and_tools_info" spellcheck="false" autocomplete="off" placeholder="Android Studio, Eclipse, TensorFlow etc.">
+                    </label>
+                    <br>
+
+                    <p class="text-left pt-2 pl-3 subheading mt-4" style="color: white;">Technical Electives</p>
+                    <label class="text-left Fields pl-3">
+                        <input class="input_fields" type="text" name="tech_electives_info" spellcheck="false" autocomplete="off" placeholder="Big Data Analytics, Machine Learning, Computer Networks etc.">
+                    </label>
+                    <br>
+                </form>
+
+            </div>
+            <!--------------------------------SKILLS FORM ENDS-------------------------------------->
+            <!----------------------------------------------------------------------------------------->
+            
+
             <!-----------------------------------WORK FORM STARTS--------------------------------------->
             <div id="WorkSection">
                 <div class="Upper elements-table w-100"> 
                     <p class="elements-table-cell pb-3 pl-3 text-left" style="word-spacing: 5px; font-size: 20px; font-weight: 300;">YOUR INTERNSHIPS</p>                 
                     <div class="button_list elements-table-cell tar" style="float: right;">
-                        <!-- <button class = "inside__btn" id="work_submit__btn"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button> -->
                         <input type="image" src="img/check.png" alt="Submit" width="45" height="40" id="work_submit__btn" class="pr-1">
-                        <!-- <button class = "inside__btn" id="work_add__btn"><i class="fa fa-plus-circle" aria-hidden="true"></i></button> -->
                         <input type="image" src="img/plus.png" alt="Submit" width="48" height="40" id="work_add__btn" class="pl-1 pr-1">
                         <input type="image" src="img/pencil.png" alt="Submit" width="48" height="40" id="work_edit__btn" class="pl-1 pr-1">
-                        <!-- <button class = "inside__btn" style = "font-size: 30px;" id="work_edit__btn"><i class="fa fa-pencil-square" aria-hidden="true"></i></button> -->
-                        <!-- <button class = "delete__btn pr-2" id="work_delete__btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button> -->
                         <input type="image" src="img/cross.png" alt="Submit" width="48" height="40" id="work_delete__btn" class="pl-1 pr-1">
                     </div>
                 </div>
@@ -270,10 +310,6 @@
                         <input type="image" src="img/plus.png" alt="Submit" width="48" height="40" id="proj_add__btn" class="pl-1 pr-1">
                         <input type="image" src="img/pencil.png" alt="Submit" width="48" height="40" id="proj_edit__btn" class="pl-1 pr-1">
                         <input type="image" src="img/cross.png" alt="Submit" width="48" height="40" id="proj_delete__btn" class="pl-1 pr-1">
-                        <!-- <button class = "inside__btn" id="proj_submit__btn"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button>
-                        <button class = "inside__btn" id="proj_add__btn"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
-                        <button class = "inside__btn" style = "font-size: 30px;" id="proj_edit__btn"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
-                        <button class = "delete__btn pr-2" id="proj_delete__btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button> -->
                     </div>
                 </div>
 
@@ -313,22 +349,22 @@
         
 
         <section id="right" class="px-3 pt-3">
-            <div class="resu_template">
+            <div class="resu_template" id="Resume_Template">
                 <!-- Basic INFO-->
                 <div id="profile_section" class="row" style="margin-bottom: 10px;">
                     <div class="col-sm-12">
                         <div id="info" style="display:inline-block" class="pl-4 pt-2">
-                            <h3 id="student_name" style="color:black; margin:17px 0px 0px 0px; font-family: 'Droid Serif', serif;" class="pb-1">Student Name</h3>
-                            <p id="student_rollno" class="basic_info ">20XXXXX</p>
-                            <p id="student_dob" class="basic_info ">DD-MM-YYYY</p>
-                            <p id="student_college" class="basic_info">Indraprastha Institute of Information Technology, Delhi</p>
+                            <h3 id="student_name" style="color:black; margin:17px 0px 0px 0px; font-family: 'Droid Serif', serif;" class="pb-1"></h3>
+                            <p id="student_rollno" class="basic_info "></p>
+                            <p id="student_dob" class="basic_info "></p>
+                            <p id="student_college" class="basic_info"></p>
                         </div>
 
                         <div id="contact_info" style="float: right; display:inline-block;" class="pr-3 pt-4 text-right">
-                            <p id="student_phone" class="basic_info">+91-XXXXXXXXXX</p>
-                            <p id="student_personal_email" class="basic_info">xyz.xyx@gmail.com</p>
-                            <p id="student_college_email" class="basic_info">xyx@iiitd.ac.in</p>
-                            <p id="student_linkedIn" class="basic_info">www.linkedin.com/in/xyz123</p>
+                            <p id="student_phone" class="basic_info"></p>
+                            <p id="student_personal_email" class="basic_info"></p>
+                            <p id="student_college_email" class="basic_info"></p>
+                            <p id="student_linkedIn" class="basic_info"></p>
                         </div>
                     </div>
                 </div>
@@ -341,9 +377,9 @@
                     <div class="row">
                         <div id="college_data" class="col-sm-12 mb-3">
                             <div id="info" style="display:inline-block" class="pl-4">
-                                <p id="student_college2" class="subtitle">Indraprastha Institute of Information Technology</p>
-                                <p id="student_stream" class="normal_text">B.Tech XXX</p>
-                                <p id="student_college_period" class="normal_text">20XX-20XX</p>
+                                <p id="student_college2" class="subtitle"></p>
+                                <p id="student_stream" class="normal_text"></p>
+                                <p id="student_college_period" class="normal_text"></p>
                             </div>
     
                             <div style="float: right; display:inline-block; margin-right:20px" class="pr-3 text-right normal_text">
@@ -353,59 +389,97 @@
                         
                         <div id="XII_data" class="col-sm-12 mb-3">
                             <div id="info" style="display:inline-block" class="pl-4">
-                                <p id="student_XII" class="subtitle">A B C Public School, Delhi</p>
-                                <p id="student_board_XII" class="normal_text">CBSE</p>
-                                <p id="student_XII_period" class="normal_text">20XX-20XX</p>
+                                <p id="student_XII" class="subtitle"></p>
+                                <p id="student_board_XII" class="normal_text"></p>
+                                <p id="student_XII_period" class="normal_text"></p>
                             </div>
     
                             <div style="float: right; display:inline-block; margin-right:20px" class="pr-3 text-right normal_text">
-                                <p id="student_XII_percentage" >XX.XX%</p>
+                                <p id="student_XII_percentage" ></p>
                             </div>
                         </div>
 
                         <div id="X_data" class="col-sm-12 mb-3">
                             <div id="info" style="display:inline-block" class="pl-4">
-                                <p id="student_X" class="subtitle">A B C Public School, Delhi</p>
-                                <p id="student_board_X" class="normal_text">CBSE</p>
-                                <p id="student_X_period" class="normal_text">20XX-20XX</p>
+                                <p id="student_X" class="subtitle"></p>
+                                <p id="student_board_X" class="normal_text"></p>
+                                <p id="student_X_period" class="normal_text"></p>
                             </div>
     
                             <div style="float: right; display:inline-block; margin-right:20px" class="pr-3 text-right normal_text">
-                                <p id="student_X_cgpa">X.XX</p>
+                                <p id="student_X_cgpa"></p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Education Section Ends-->
+
+                <!-- Skills Section -->
+                <div id="skills_section">
+                    <div id="skills_title" class="title">
+                        <p>Technical Skills</p>
+                    </div>
+                    <div class="row">
+                        <div id="expertise_area" class="col-sm-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div id="student_expertise_sub" class="col pl-4 subtitle" id="info",style="display:inline-block; float: left;">
+                                      </div>
+                                      <div class="col-9 normal_text" style="display: inline-block;">
+                                        <p id="student_expertise_info" class="text-left pr-3"></p>
+                                      </div>
+                                </div>
+                              </div>
+                        </div>
+
+                        <div id="prog_languages" class="col-sm-12 mb-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div id="student_prog_languages_sub" class="col pl-4 subtitle" id="info",style="display:inline-block; float: left;">
+                                      </div>
+                                      <div class="col-9 normal_text" style="display: inline-block;">
+                                        <p id="student_prog_languages_info" class="text-left pr-3"></p>
+                                      </div>
+                                </div>
+                              </div>
+                        </div>
+
+                        <div id="tech_and_tools" class="col-sm-12 mb-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div id="student_tech_and_tools_sub" class="col pl-4 subtitle" id="info",style="display:inline-block; float: left;">
+                                      </div>
+                                      <div class="col-9 normal_text" style="display: inline-block;">
+                                        <p id="student_tech_and_tools_info" class="text-left pr-3"></p>
+                                      </div>
+                                </div>
+                              </div>
+                        </div>
+
+                        <div id="tech_electives" class="col-sm-12 mb-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div id="student_tech_electives_sub" class="col pl-4 subtitle" id="info",style="display:inline-block; float: left;">
+                                      </div>
+                                      <div class="col-9 normal_text" style="display: inline-block;">
+                                        <p id="student_tech_electives_info" class="text-left pr-3"></p>
+                                      </div>
+                                </div>
+                              </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- Skills Section Ends-->
                 
                 <!-- Work Info-->
                 <div id="work_section">
-                    <div id="work_title" class="title mb-3">
+                    <div id="work_title" class="title mb-3"> 
                         <p>Internships</p>
                     </div>
 
                     <ul id="work_list">
-                        <!--
-                        <li id="work-1">
-                            <div class="pl-4">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div id="info" style="display:inline-block">
-                                            <p id="student_workName" class="subtitle">Resugen</p>                                
-                                            <p class="subtitle p_tag" id="student_workGuide">Guide: </p><p id="guide" class="normal_text p_tag">Kakashi Hatake</p>
-                                        </div>
-                                        <div style="float: right; display:inline-block; margin-right:20px;" class="pr-3 text-right normal_text">
-                                            <p id="student_workDuration">May-2016 to June-2016</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <p id="student_workDescription" class="normal_text">The above example creates three equal-width columns on small, medium, large, and extra large devices using our predefined grid classes. Those columns are centered in the page with the parent.</p>
-
-                            </div>
-                            <br>
-                        </li> -->
                     </ul>
 
                 </div>
@@ -420,26 +494,6 @@
                     </div>
 
                     <ul id="project_list">
-                        <!--
-                        <li id="project-1">
-                            <div class="pl-4">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div id="info" style="display:inline-block">
-                                            <p id="student_projName" class="subtitle">Resugen</p>                                
-                                            <p class="subtitle p_tag" id="student_workGuide">Guide: </p><p id="guide" class="normal_text p_tag">Kakashi Hatake</p>
-                                        </div>
-                                        <div style="float: right; display:inline-block; margin-right:20px;" class="pr-3 text-right normal_text">
-                                            <p id="student_workDuration">May-2016 to June-2016</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <p id="student_workDescription" class="normal_text">The above example creates three equal-width columns on small, medium, large, and extra large devices using our predefined grid classes. Those columns are centered in the page with the parent.</p>
-
-                            </div>
-                            <br>
-                        </li> -->
                     </ul>
 
                 </div>

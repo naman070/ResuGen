@@ -27,21 +27,31 @@ var controller = (function(ResuCtrl,UICtrl){
 
         document.querySelector(DOMstrings.profile_section).style.display = "block";
 
+        // Profile Section Display
         document.querySelector(DOMbtns.profile_btn).addEventListener('click',function(){
             vanish(DOMstrings);
             document.querySelector(DOMstrings.profile_section).style.display = 'block';
         });
 
+        // Education Section Display
         document.querySelector(DOMbtns.edu_btn).addEventListener('click',function(){
             vanish(DOMstrings);
             document.querySelector(DOMstrings.edu_section).style.display = 'block';
         });
 
+        // Skills Section Display
+        document.querySelector(DOMbtns.skills_btn).addEventListener('click',function(){
+            vanish(DOMstrings);
+            document.querySelector(DOMstrings.skills_section).style.display = 'block';
+        })
+
+        // Work Section Display
         document.querySelector(DOMbtns.work_btn).addEventListener('click',function(){
             vanish(DOMstrings);
             document.querySelector(DOMstrings.work_section).style.display = 'block';
         });
 
+        // Projects Section Display
         document.querySelector(DOMbtns.proj_btn).addEventListener('click',function(){
             vanish(DOMstrings);
             document.querySelector(DOMstrings.proj_section).style.display = 'block';
@@ -49,12 +59,18 @@ var controller = (function(ResuCtrl,UICtrl){
         
 
         // Event listeners for submit aur add button in different sections
+
+        // 1. PROFILE EVENT LISTENER
         document.querySelector(DOMbtns.profile_submit_btn).addEventListener('click',ctrlProfile);
 
+
+        // 2. EDUCATION EVENT LISTENER
         document.querySelector(DOMbtns.edu_submit_btn).addEventListener('click',ctrlEducation);
 
+        // 3. SKILLS EVENT LISTENER
+        document.querySelector(DOMbtns.skills_submit_btn).addEventListener('click',ctrlSkills);
 
-        // WORK EVENT LISTENERS
+        // 4. WORK EVENT LISTENERS
         document.querySelector(DOMbtns.work_submit_btn).addEventListener('click',function(){
             var type = "work";
             for_data_main(type);
@@ -75,8 +91,8 @@ var controller = (function(ResuCtrl,UICtrl){
             var id = UICtrl.prompt_user("workID you want to delete");
             for_delete_main(id,type);
         });
-
-        // PROJECT EVENT LISTENERS
+        
+        // 5. PROJECT EVENT LISTENERS
         document.querySelector(DOMbtns.proj_submit_btn).addEventListener('click',function(){
             var type = "project";
             for_data_main(type);
@@ -96,6 +112,20 @@ var controller = (function(ResuCtrl,UICtrl){
             var type = "project";
             var id = UICtrl.prompt_user("ProjectID you want to delete");
             for_delete_main(id,type);
+        });
+
+        document.querySelector(DOMbtns.make_pdf).addEventListener('click', function (){ 
+            kendo.drawing
+                .drawDOM("#Resume_Template", 
+                { 
+                    paperSize: "A4",
+                    margin: { top: "1cm", bottom: "1cm" },
+                    scale: 0.6,
+                    height: 500
+                })
+                    .then(function(group){
+                    kendo.drawing.pdf.saveAs(group, "Exported.pdf")
+                });
         });
 
     }
@@ -167,6 +197,13 @@ var controller = (function(ResuCtrl,UICtrl){
         }
     }
 
+    var ctrlSkills = function(){
+        var inp = UICtrl.get_skills_input();
+        // console.log(inp[0]);
+        ResuCtrl.addSkillsData(inp);
+        UICtrl.updateSkills(inp);
+    }
+
 
     var for_data_main = function(type){
         var res = UICtrl.get_main_input(type);
@@ -231,3 +268,5 @@ var controller = (function(ResuCtrl,UICtrl){
 })(ResumeController,UIController);
 
 controller.init();
+
+

@@ -7,6 +7,7 @@ export var ResumeController = (function(){
             XII_data : {},
             X_data : {}
         },
+        skills_data : {},
         work_data : [],
         proj_data : []
     };
@@ -39,6 +40,11 @@ export var ResumeController = (function(){
             data.edu_data.X_data = education_arr[2];
             return data;
         },
+
+        addSkillsData : function(skills_arr){
+            data.skills_data = skills_arr[0];
+        },
+
         processMainData : function(my_array,type){
             var id = my_array[0];
             var my_data = my_array[1];
