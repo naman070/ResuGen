@@ -51,7 +51,6 @@
     margin: 25px 25px 0px 25px;
     padding: 0px 20px 0px 10px;
     color: black;
-    font-weight: 600;
     font-size: 18px;
     font-family:"Verdana", serif;
 }
@@ -66,7 +65,6 @@
     color:black;
     margin: 0px 0px 0px 0px;
     font-family: "Verdana", serif;
-    font-weight: 750;
 }
 
 .normal_text{
