@@ -3,6 +3,8 @@ import {UIController} from './UICtrl.js';
 
 var controller = (function(ResuCtrl,UICtrl){
 
+    var resume_id = "Resume_Template";
+
     var vanish = function(DOMstrings){
         var array = Object.values(DOMstrings);
         for(var i=0; i<array.length; i++){
@@ -119,16 +121,17 @@ var controller = (function(ResuCtrl,UICtrl){
                 .drawDOM("#Resume_Template", 
                 { 
                     paperSize: "A4",
-                    margin: { top: "1cm", bottom: "1cm" },
                     scale: 0.6,
                     height: 500
                 })
                     .then(function(group){
-                    kendo.drawing.pdf.saveAs(group, "Exported.pdf")
+                    kendo.drawing.pdf.saveAs(group, "Resume.pdf")
                 });
         });
 
     }
+
+
 
     var isEducationEmpty = function(edu_data){
         var c = Object.values(edu_data.college_data);
@@ -170,6 +173,7 @@ var controller = (function(ResuCtrl,UICtrl){
     }
 
     var ctrlProfile = function(){
+        console.log("HELLO");
         var inp = UICtrl.get_profile_input();
         var data = ResuCtrl.addProfileData(inp);
         UICtrl.updateProfile(data);
@@ -268,5 +272,7 @@ var controller = (function(ResuCtrl,UICtrl){
 })(ResumeController,UIController);
 
 controller.init();
+
+
 
 
