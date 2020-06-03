@@ -18,7 +18,8 @@ export var UIController = (function(){
         proj_submit_btn: '#proj_submit__btn',
         proj_add_btn: '#proj_add__btn',
         proj_edit_btn: '#proj_edit__btn',
-        proj_delete_btn: '#proj_delete__btn'
+        proj_delete_btn: '#proj_delete__btn',
+        hobbies_submit_btn: '#hobbies_submit__btn'
     };
 
     var DOMstrings = {
@@ -26,7 +27,8 @@ export var UIController = (function(){
         edu_section: '#EducationSection',
         skills_section: '#SkillsSection',
         work_section: '#WorkSection',
-        proj_section: '#ProjectSection'
+        proj_section: '#ProjectSection',
+        hobbies_section: '#HobbiesSection'
     };
 
     var DOMforms = {
@@ -36,7 +38,8 @@ export var UIController = (function(){
         edu_X_form: '#XForm',
         skills_form: '#SkillsForm',
         work_form: '#WorkForm',
-        proj_form: '#ProjectForm'
+        proj_form: '#ProjectForm',
+        hobbies_form: '#HobbiesForm'
     };
 
     var TemplateSections = {
@@ -44,7 +47,8 @@ export var UIController = (function(){
         education : "#education_section",
         skills: "#skills_section",
         work : "#work_section",
-        project: '#project_section'
+        project: '#project_section',
+        hobbies: '#hobbies_section'
     };
 
     var helper = function(elements){
@@ -99,6 +103,13 @@ export var UIController = (function(){
             var skills_el = document.querySelector(DOMforms.skills_form).elements;
             skills_arr.push(helper(skills_el));
             return skills_arr;
+        },
+
+        get_hobbies_input : function(){
+            var hobbies_arr = [];
+            var hobbies_el = document.querySelector(DOMforms.hobbies_form).elements;
+            hobbies_arr.push(helper(hobbies_el));
+            return hobbies_arr;
         },
 
         get_main_input : function(value){
@@ -202,12 +213,38 @@ export var UIController = (function(){
                     document.getElementById(resu_id).style.display = 'none';
                     document.getElementById(subheadings[i]).style.display = 'none';
                     if(count == 4){
+                        count = 0;
                         document.querySelector(TemplateSections.skills).style.display = 'none';
                     }
                 }
                 document.getElementById(resu_id).innerHTML = value;
             }
 
+        },
+
+        updateHobbies: function(data){
+            var obj_data = data[0];
+            var key_names = Object.keys(obj_data);
+            var count = 0;
+            console.log(obj_data);
+            for(var i=0;i<key_names.length;i++){
+                var value = obj_data[key_names[i]];
+                var resu_id = 'student_' + key_names[i];
+                if(value.length > 0){
+                    document.querySelector(TemplateSections.hobbies).style.display = 'block';
+                    document.getElementById(resu_id).style.display = 'block';
+                }
+                else{
+                    count +=1;
+                    document.getElementById(resu_id).style.display = 'none';
+                    if(count >=6){
+                        count = 0;
+                        document.querySelector(TemplateSections.hobbies).style.display = 'none';
+                    }
+                }
+                document.getElementById(resu_id).innerHTML = value;
+            }
+            
         },
 
         updateMain: function(data,type){

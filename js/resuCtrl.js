@@ -9,7 +9,8 @@ export var ResumeController = (function(){
         },
         skills_data : {},
         work_data : [],
-        proj_data : []
+        proj_data : [],
+        hobbies_data : {}
     };
 
     var my_checker = function(id,type){
@@ -43,6 +44,10 @@ export var ResumeController = (function(){
 
         addSkillsData : function(skills_arr){
             data.skills_data = skills_arr[0];
+        },
+
+        addHobbiesData : function(hobbies_arr){
+            data.hobbies_data = hobbies_arr[0];
         },
 
         processMainData : function(my_array,type){

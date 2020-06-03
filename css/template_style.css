@@ -84,3 +84,23 @@
     font-style: italic;
     margin-right: 1px;
 }
+
+.last_two{
+    list-style-type: none; /* no default bullets */
+}
+  
+.last_two li { 
+    font-family: Arial;
+    font-size: 18px;
+}
+  
+.last_two li:before { /* the custom styled bullets */
+    background-color: black;
+    border-radius: 50%;
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 2px;
+    height: 8px;
+    width: 8px;
+}

@@ -58,6 +58,12 @@ var controller = (function(ResuCtrl,UICtrl){
             vanish(DOMstrings);
             document.querySelector(DOMstrings.proj_section).style.display = 'block';
         });
+
+        // Hobbies Section Display
+        document.querySelector(DOMbtns.hobbies_btn).addEventListener('click',function(){
+            vanish(DOMstrings);
+            document.querySelector(DOMstrings.hobbies_section).style.display = 'block';
+        });
         
 
         // Event listeners for submit aur add button in different sections
@@ -116,12 +122,18 @@ var controller = (function(ResuCtrl,UICtrl){
             for_delete_main(id,type);
         });
 
+
+        // 7. HOBBIES EVENT LISTENERS
+        document.querySelector(DOMbtns.hobbies_submit_btn).addEventListener('click',ctrlHobbies);
+
+
+        // EVENT LISTENER TO GENERATE PDF
         document.querySelector(DOMbtns.make_pdf).addEventListener('click', function (){ 
             kendo.drawing
                 .drawDOM("#Resume_Template", 
                 { 
                     paperSize: "A4",
-                    scale: 0.7,
+                    scale: 0.65,
                     margin: { top: "1cm", bottom: "2cm" },
                     height: 500
                 })
@@ -152,7 +164,7 @@ var controller = (function(ResuCtrl,UICtrl){
             }
         }
         return arr;
-    }
+    };
 
     var educationDisplay = function(id,el){
         if(el == 0){
@@ -161,7 +173,7 @@ var controller = (function(ResuCtrl,UICtrl){
         else{
             document.getElementById(id).style.display = 'block';
         }
-    }
+    };
 
     var isProfileEmpty = function(prof_data){
         var x = Object.values(prof_data);
@@ -171,7 +183,7 @@ var controller = (function(ResuCtrl,UICtrl){
             }
         }
         return true;
-    }
+    };
 
     var ctrlProfile = function(){
         console.log("HELLO");
@@ -184,7 +196,7 @@ var controller = (function(ResuCtrl,UICtrl){
         else{
             document.querySelector(TemplateSections.profile).style.display = 'none';
         }
-    }
+    };
 
     var ctrlEducation = function(){
         var inp = UICtrl.get_education_input();
@@ -200,15 +212,20 @@ var controller = (function(ResuCtrl,UICtrl){
             educationDisplay('XII_data',arr[1]);
             educationDisplay('X_data',arr[2]);
         }
-    }
+    };
 
     var ctrlSkills = function(){
         var inp = UICtrl.get_skills_input();
         // console.log(inp[0]);
         ResuCtrl.addSkillsData(inp);
         UICtrl.updateSkills(inp);
-    }
+    };
 
+    var ctrlHobbies = function(){
+        var inp = UICtrl.get_hobbies_input();
+        ResuCtrl.addHobbiesData(inp);
+        UICtrl.updateHobbies(inp);
+    };
 
     var for_data_main = function(type){
         var res = UICtrl.get_main_input(type);
@@ -224,7 +241,7 @@ var controller = (function(ResuCtrl,UICtrl){
             // update the work data in the UI
             UICtrl.updateMain(value,type);
         }
-    }
+    };
 
     var for_edit_main = function(id,type){
         // 1. search this id in the database
@@ -242,7 +259,7 @@ var controller = (function(ResuCtrl,UICtrl){
                 UICtrl.edit_form(arr,type);
             }
         }
-    }
+    };
 
     var for_delete_main = function(id,type){
         // 1. check if prompt is cancelled or is pressed ok
@@ -262,7 +279,7 @@ var controller = (function(ResuCtrl,UICtrl){
                 UICtrl.deleteMain(id,cond,type);
             }
         }
-    }
+    };
 
     return {
         init: function(){
