@@ -19,7 +19,8 @@ export var UIController = (function(){
         proj_add_btn: '#proj_add__btn',
         proj_edit_btn: '#proj_edit__btn',
         proj_delete_btn: '#proj_delete__btn',
-        hobbies_submit_btn: '#hobbies_submit__btn'
+        achievements_submit_btn : '#achievements_submit__btn',
+        hobbies_submit_btn: '#hobbies_submit__btn',
     };
 
     var DOMstrings = {
@@ -28,6 +29,7 @@ export var UIController = (function(){
         skills_section: '#SkillsSection',
         work_section: '#WorkSection',
         proj_section: '#ProjectSection',
+        achievements_section: '#AchievementsSection',
         hobbies_section: '#HobbiesSection'
     };
 
@@ -39,6 +41,7 @@ export var UIController = (function(){
         skills_form: '#SkillsForm',
         work_form: '#WorkForm',
         proj_form: '#ProjectForm',
+        achievements_form: '#AchievementsForm',
         hobbies_form: '#HobbiesForm'
     };
 
@@ -48,6 +51,7 @@ export var UIController = (function(){
         skills: "#skills_section",
         work : "#work_section",
         project: '#project_section',
+        achievements: '#achievements_section',
         hobbies: '#hobbies_section'
     };
 
@@ -105,11 +109,18 @@ export var UIController = (function(){
             return skills_arr;
         },
 
-        get_hobbies_input : function(){
-            var hobbies_arr = [];
-            var hobbies_el = document.querySelector(DOMforms.hobbies_form).elements;
-            hobbies_arr.push(helper(hobbies_el));
-            return hobbies_arr;
+        get_last_input : function(type){
+            var to_use;
+            if(type === "hobbies"){
+                to_use = DOMforms.hobbies_form;
+            }
+            else{
+                to_use = DOMforms.achievements_form;
+            }
+            var last_arr = [];
+            var last_el = document.querySelector(to_use).elements;
+            last_arr.push(helper(last_el));
+            return last_arr;
         },
 
         get_main_input : function(value){
@@ -222,24 +233,31 @@ export var UIController = (function(){
 
         },
 
-        updateHobbies: function(data){
+        updateLast: function(data,type,count){
             var obj_data = data[0];
             var key_names = Object.keys(obj_data);
-            var count = 0;
-            console.log(obj_data);
+            var counter = 0;
+            var template_section;
+            if(type === "hobbies"){
+                template_section = TemplateSections.hobbies;
+            }
+            else{
+                template_section = TemplateSections.achievements;
+            }
+
             for(var i=0;i<key_names.length;i++){
                 var value = obj_data[key_names[i]];
                 var resu_id = 'student_' + key_names[i];
                 if(value.length > 0){
-                    document.querySelector(TemplateSections.hobbies).style.display = 'block';
+                    document.querySelector(template_section).style.display = 'block';
                     document.getElementById(resu_id).style.display = 'block';
                 }
                 else{
-                    count +=1;
+                    counter +=1;
                     document.getElementById(resu_id).style.display = 'none';
-                    if(count >=6){
-                        count = 0;
-                        document.querySelector(TemplateSections.hobbies).style.display = 'none';
+                    if(counter >= count){
+                        counter = 0;
+                        document.querySelector(template_section).style.display = 'none';
                     }
                 }
                 document.getElementById(resu_id).innerHTML = value;
@@ -254,13 +272,13 @@ export var UIController = (function(){
             var to_replace,html,element,selector;
 
             if(type === "work"){
-                var html = '<li id="work-%id%" class="mb-3"><div class="pl-4"><div class="row"><div class="col-sm-12"><div id="info" style="display:inline-block"><p id="student_workName-' + main_id + '" class="subtitle" style="font-weight: bold;">%workName%</p><p class="p_tag subtitle">Guide: </p><p id="student_workGuide-' + main_id + '" class="normal_text p_tag">%workGuide%</p></div><div style="float: right; display:inline-block; margin-right:20px;" class="pr-3 text-right normal_text"><p id="student_workDuration-' + main_id + '">%workDuration%</p></div></div></div><br><p id="student_workDescription-' + main_id + '" class="normal_text">%workDescription%</p></div><br></li>';
+                var html = '<li id="work-%id%" class="mb-3"><div class="pl-4"><div class="row"><div class="col-sm-12"><div id="info" style="display:inline-block"><p id="student_workName-' + main_id + '" class="subtitle" style="font-weight: bold;">%workName%</p><p class="p_tag subtitle">Guide:</p><p id="student_workGuide-' + main_id + '" class="normal_text p_tag">%workGuide%</p></div><div style="float: right; display:inline-block; margin-right:20px;" class="pr-3 text-right normal_text"><p id="student_workDuration-' + main_id + '">%workDuration%</p></div></div></div><br><p id="student_workDescription-' + main_id + '" class="normal_text">%workDescription%</p></div><br></li>';
                 to_replace = ['%workName%','%workGuide%','%workDuration%','%workDescription%'];
                 element = "#work_list";
                 selector = TemplateSections.work;
             }
             else{
-                var html = '<li id="project-%id%" class="mb-3"><div class="pl-4"><div class="row"><div class="col-sm-12"><div id="info" style="display:inline-block"><p id="student_projectName-' + main_id + '" class="subtitle" style="font-weight: bold;">%projectName%</p><p class="p_tag subtitle">Guide: </p><p id="student_projectGuide-' + main_id + '" class="normal_text p_tag">%projectGuide%</p></div><div style="float: right; display:inline-block; margin-right:20px;" class="pr-3 text-right normal_text"><p id="student_projectDuration-' + main_id + '">%projectDuration%</p></div></div></div><br><p id="student_projectDescription-' + main_id + '" class="normal_text">%projectDescription%</p></div><br></li>';
+                var html = '<li id="project-%id%" class="mb-3"><div class="pl-4"><div class="row"><div class="col-sm-12"><div id="info" style="display:inline-block"><p id="student_projectName-' + main_id + '" class="subtitle" style="font-weight: bold;">%projectName%</p><p class="p_tag subtitle">Guide:</p><p id="student_projectGuide-' + main_id + '" class="normal_text p_tag">%projectGuide%</p></div><div style="float: right; display:inline-block; margin-right:20px;" class="pr-3 text-right normal_text"><p id="student_projectDuration-' + main_id + '">%projectDuration%</p></div></div></div><br><p id="student_projectDescription-' + main_id + '" class="normal_text">%projectDescription%</p></div><br></li>';
                 to_replace = ['%projectName%','%projectGuide%','%projectDuration%','%projectDescription%'];
                 element = "#project_list";
                 selector = TemplateSections.project;

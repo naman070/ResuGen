@@ -59,6 +59,12 @@ var controller = (function(ResuCtrl,UICtrl){
             document.querySelector(DOMstrings.proj_section).style.display = 'block';
         });
 
+        // Achievements Section Display
+        document.querySelector(DOMbtns.achievements_btn).addEventListener('click',function(){
+            vanish(DOMstrings);
+            document.querySelector(DOMstrings.achievements_section).style.display = 'block';
+        });
+
         // Hobbies Section Display
         document.querySelector(DOMbtns.hobbies_btn).addEventListener('click',function(){
             vanish(DOMstrings);
@@ -122,6 +128,9 @@ var controller = (function(ResuCtrl,UICtrl){
             for_delete_main(id,type);
         });
 
+
+        // 6. ACHIEVEMENTS EVENT LISTENERS
+        document.querySelector(DOMbtns.achievements_submit_btn).addEventListener('click',ctrlAchievements);
 
         // 7. HOBBIES EVENT LISTENERS
         document.querySelector(DOMbtns.hobbies_submit_btn).addEventListener('click',ctrlHobbies);
@@ -222,9 +231,19 @@ var controller = (function(ResuCtrl,UICtrl){
     };
 
     var ctrlHobbies = function(){
-        var inp = UICtrl.get_hobbies_input();
-        ResuCtrl.addHobbiesData(inp);
-        UICtrl.updateHobbies(inp);
+        var type = "hobbies";
+        var count = 6;
+        var inp = UICtrl.get_last_input(type);
+        ResuCtrl.addLastData(inp,type);
+        UICtrl.updateLast(inp,type,count);
+    };
+
+    var ctrlAchievements = function(){
+        var type = "achievements";
+        var count = 8;
+        var inp = UICtrl.get_last_input(type);
+        ResuCtrl.addLastData(inp,type);
+        UICtrl.updateLast(inp,type,count);
     };
 
     var for_data_main = function(type){

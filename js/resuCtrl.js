@@ -10,6 +10,7 @@ export var ResumeController = (function(){
         skills_data : {},
         work_data : [],
         proj_data : [],
+        achievements_data : [],
         hobbies_data : {}
     };
 
@@ -46,8 +47,13 @@ export var ResumeController = (function(){
             data.skills_data = skills_arr[0];
         },
 
-        addHobbiesData : function(hobbies_arr){
-            data.hobbies_data = hobbies_arr[0];
+        addLastData : function(last_arr,type){
+            if(type === "hobbies"){
+                data.hobbies_data = last_arr[0];
+            }
+            else{
+                data.achievements_data = last_arr[0];
+            }
         },
 
         processMainData : function(my_array,type){
