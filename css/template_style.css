@@ -33,7 +33,7 @@
     color:black;
     margin: 0px 0px 0px 0px;
     font-family: 'Droid Serif', serif;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .p_tag{
@@ -61,14 +61,14 @@
 }
 
 .subtitle{
-    font-size: 15px;
+    font-size: 18px;
     color:black;
     margin: 0px 0px 0px 0px;
     font-family: "Verdana", serif;
 }
 
 .normal_text{
-    font-size: 15px;
+    font-size: 17px;
     color:black;
     margin: 0px 0px 0px 0px;
     font-family: "Verdana", serif;

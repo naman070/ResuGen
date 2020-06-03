@@ -121,7 +121,8 @@ var controller = (function(ResuCtrl,UICtrl){
                 .drawDOM("#Resume_Template", 
                 { 
                     paperSize: "A4",
-                    scale: 0.6,
+                    scale: 0.7,
+                    margin: { top: "1cm", bottom: "2cm" },
                     height: 500
                 })
                     .then(function(group){
