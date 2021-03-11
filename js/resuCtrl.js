@@ -14,7 +14,35 @@ export var ResumeController = (function(){
         hobbies_data : {}
     };
 
+    var my_checker = function(id,type){
+        var data_to_use;
+        if(type === "work"){
+            data_to_use = data.work_data;
+        }
+        else{
+            data_to_use = data.proj_data;
+        }
+        for(var i=0;i<data_to_use.length;i++){
+            if(data_to_use[i][0] === id){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     return {
+        addProfileData : function(profile_obj){
+            data.profile_data = profile_obj;
+            return data;
+        },
+
+        addEducationData : function(education_arr){
+            data.edu_data.college_data = education_arr[0];
+            data.edu_data.XII_data = education_arr[1];
+            data.edu_data.X_data = education_arr[2];
+            return data;
+        },
+
         addSkillsData : function(skills_arr){
             data.skills_data = skills_arr[0];
         },
